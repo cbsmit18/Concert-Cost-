@@ -1,3 +1,4 @@
+import { ConcertExpensePredictor } from "@/components/ConcertExpensePredictor";
 import { formatDate } from "@/lib/concert-metrics";
 
 import type { UpcomingConcert } from "@/lib/upcoming-concerts/types";
@@ -91,6 +92,10 @@ export function UpcomingConcertCard({ concert }: { concert: UpcomingConcert }) {
           <p className={ui.helperText}>No ticket link available</p>
 
         )}
+
+        <div className="border-t border-base-300/60 pt-4 mt-2">
+          <ConcertExpensePredictor concert={concert} />
+        </div>
 
       </div>
 

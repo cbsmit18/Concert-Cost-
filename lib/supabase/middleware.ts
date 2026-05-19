@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 
 
-const PROTECTED = ["/dashboard", "/add", "/concerts"];
+const PROTECTED = ["/dashboard", "/upcoming", "/add", "/concerts"];
 
 
 

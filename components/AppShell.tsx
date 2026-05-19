@@ -8,7 +8,7 @@ import { ThemeSelector } from "@/components/ThemeSelector";
 
 import { createClient } from "@/lib/supabase/client";
 
-import { BarChart3, ListMusic, LogOut, PlusCircle } from "lucide-react";
+import { BarChart3, CalendarDays, ListMusic, LogOut } from "lucide-react";
 
 import Link from "next/link";
 
@@ -17,14 +17,14 @@ import { usePathname, useRouter } from "next/navigation";
 
 
 const NAV = [
-
   { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-
-  { href: "/add", label: "Add Concert", icon: PlusCircle },
-
+  { href: "/upcoming", label: "Upcoming Concerts", icon: CalendarDays },
   { href: "/concerts", label: "My Concerts", icon: ListMusic },
-
 ];
+
+function isNavActive(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 
 
@@ -135,9 +135,7 @@ export function AppShell({
                 role="tab"
 
                 className={`tab gap-2 whitespace-nowrap transition-colors duration-200 min-h-12 ${
-
-                  pathname === href ? "tab-active font-semibold" : ""
-
+                  isNavActive(pathname, href) ? "tab-active font-semibold" : ""
                 }`}
 
               >
@@ -191,9 +189,7 @@ export function AppShell({
             href={href}
 
             className={`min-h-[3.5rem] transition-colors duration-200 ${
-
-              pathname === href ? "active text-primary" : ""
-
+              isNavActive(pathname, href) ? "active text-primary" : ""
             }`}
 
           >
