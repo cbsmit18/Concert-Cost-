@@ -16,3 +16,12 @@ Next.js app for logging concert costs, fun ratings, and dashboard analytics. Use
 ## GitHub
 
 Remote: `https://github.com/cbsmit18/Concert-Cost-.git`
+
+## Deploy on Vercel
+
+1. Import the GitHub repo and use **Framework Preset: Next.js**.
+2. **Do not** set Output Directory to `public` — leave it empty so Vercel uses the Next.js build (`.next`). The `public/` folder is only for static assets, not build output.
+3. Add environment variables (Production and Preview):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. After the first deploy, in Supabase → **Authentication → URL configuration**, add your Vercel URL and `https://<your-app>.vercel.app/auth/callback`.
