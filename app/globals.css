@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx}";
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    corporate,
+    emerald,
+    synthwave;
+}
+
+body {
+  min-height: 100vh;
+  @apply bg-base-200 text-base-content antialiased;
+}
+
+.app-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.surface-card {
+  @apply bg-base-100 shadow-md border border-base-300/60 rounded-2xl;
+}
+
+.text-page-title {
+  @apply text-3xl font-bold tracking-tight text-base-content;
+}
+
+.text-section-title {
+  @apply text-lg font-semibold text-base-content/80;
+}
+
+.text-helper {
+  @apply text-sm text-base-content/60;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+  }
+
+  .motion-safe-hover-lift {
+    transform: none !important;
+  }
+}
+
+.motion-safe-hover-lift {
+  @apply transition-all duration-300;
+}
+
+.motion-safe-hover-lift:hover {
+  @apply -translate-y-0.5 shadow-lg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-hover-lift:hover {
+    @apply translate-y-0 shadow-md;
+  }
+}
